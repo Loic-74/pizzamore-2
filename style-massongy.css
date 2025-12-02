@@ -1,0 +1,65 @@
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background:url(img/fond-massongy.jpg) no-repeat center center fixed; background-size: cover;}
+.topbar{position:sticky; top:0; z-index:50; display:flex; gap:12px; align-items:center; padding:12px 16px; background:#111; border-bottom:1px solid rgba(255,255,255,.12)}
+.topbar .back{color:#fff; text-decoration:none; font-weight:600}
+.topbar h1{margin:0 auto 0 8px; font-size:20px}
+.wrapper{max-width:1100px; margin:22px auto; padding:0 16px}
+.contact-card{display:grid; grid-template-columns:1.2fr 1fr; gap:16px}
+@media (max-width:880px){.contact-card{grid-template-columns:1fr}}
+.contact-text{background:#151515; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:16px}
+.addr,.hours,.tel,.maps{margin:6px 0}
+.tel a,.maps a{color:#fff; text-decoration:none}
+.tel a:hover,.maps a:hover{text-decoration:underline}
+.mini-map{border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.12)}
+.mini-map iframe{display:block; width:100%; height:260px; filter:grayscale(10%) brightness(.95)}
+.menu{margin-top:22px}
+.menu-group{background:#151515; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; margin-bottom:14px}
+.menu-group h3{margin:0 0 10px 0}
+.menu-group ul{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+.menu-group li{display:grid; grid-template-columns: 1fr 1.2fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08)}
+.menu-group li span{font-weight:600}
+.menu-group li em{opacity:.9; font-style:normal}
+.menu-group li strong{font-weight:800}
+.supps{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.foot{opacity:.85; padding:18px 0; text-align:center}
+/* Bloc photo Massongy – image entière sans zoom */
+.photo{
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  height: clamp(460px, 38vw, 520px);  /* ↑ augmente la hauteur = moins de recadrage */
+}
+
+@media (max-width: 600px){
+  .photo-encart{ height: clamp(280px, 48vw, 560px); }
+  .photo-encart img{ object-position: 50% 35%; }
+}
+/* === FIX encart photo (Messery) — basé sur ton HTML ci-dessus === */
+section.photo{ height: auto !important; }
+
+section.photo > .photo-encart{
+  height: clamp(460px, 38vw, 520px) !important;  /* ta hauteur souhaitée */
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,.25);
+  background: rgba(255,255,255,.03);
+}
+
+section.photo > .photo-encart > img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* remplit l'encart (un peu de crop) */
+  object-position: 50% 40%;   /* ajuste le cadrage vertical : 35% = +haut, 55% = +bas */
+}
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+/* ====== Réglages globaux ====== */
+:root{
+  --container: 1100px;
+}
+.wrapper{max-width:var(--container); margin:22px auto; padding:0 16px}
+
+/* Typo qui s’adapte */
+h1{font-size:clamp(20px, 2.4vw, 32px)}
+h2{font-size:clamp(18px, 2vw, 24px)}
+h3{font-size:clamp(16px, 1.6vw, 20px)}
+body{line-height:1.5}
+
+/* Topbar */
+.topbar{gap:12px; padding:12px 16px}
+.topbar h1{font-size:clamp(18px, 2vw, 22px)}
+
+/* Boutons */
+.btns{display:flex; gap:10px; flex-wrap:wrap}
+.btn{padding:12px 16px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; min-height:44px}
+
+/* Mini-carte Google responsive */
+.mini-map iframe{width:100%; height:260px; border:0}
+@media (max-width:600px){
+  .mini-map iframe{height:220px}
+}
+
+/* Encarts photo (Messery/Massongy) */
+.photo-encart{
+  position:relative; overflow:hidden;
+  border:1px dashed rgba(255,255,255,.25);
+  border-radius:14px; background:rgba(255,255,255,.03);
+  height:clamp(160px, 30vw, 320px);
+}
+.photo-encart img{
+  display:block; width:100%; height:100%;
+  object-fit:cover; object-position:50% 30%; /* ajuste 30–40% si besoin */
+}
+@media (max-width:600px){
+  .photo-encart{height:clamp(200px, 42vw, 340px)}
+  .photo-encart img{object-position:50% 28%}
+}
+
+/* Groupes de menu */
+.menu-group{padding:14px; margin-bottom:14px}
+.menu-group ul{display:grid; gap:8px; padding:0; list-style:none}
+
+/* Lignes des menus : texte à gauche, prix à droite */
+.menu-group li{
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+}
+.menu-group li span{font-weight:600}
+.menu-group li em{font-style:normal; opacity:.9}
+
+/* Prix (un ou plusieurs) alignés à droite */
+.menu-group li strong{
+  margin-left:auto; display:flex; align-items:center; gap:40px;
+  white-space:nowrap; text-align:right; min-width:120px;
+}
+.menu-group li strong em{font-size:.9em; opacity:.85; min-width:50px; text-align:right}
+
+/* Mobile : on autorise le wrap mais on garde le prix propre */
+@media (max-width:560px){
+  .menu-group li{flex-wrap:wrap}
+  .menu-group li strong{order:3; width:100%; justify-content:flex-end; gap:24px}
+}
+
+/* Table des vins : scroll horizontal sur petit écran */
+.wines{width:100%; border-collapse:collapse}
+.wines th,.wines td{padding:10px; border:1px solid rgba(255,255,255,.12)}
+@media (max-width:700px){
+  .wines{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; white-space:nowrap}
+}
+
+/* Cartes de contact : pile sur mobile */
+.contact-card{display:grid; grid-template-columns:1.2fr 1fr; gap:16px}
+@media (max-width:880px){
+  .contact-card{grid-template-columns:1fr}
+}
+
+/* Arrière-plans : évite l’effet “saccade” sur mobile */
+@media (max-width:900px){
+  body{background-attachment:scroll}
+}
+
+/* Petites marges en bas de page */
+.foot{padding:18px 0; text-align:center; opacity:.85}

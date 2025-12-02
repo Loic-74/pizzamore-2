@@ -1,0 +1,53 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background: url(img/fond-messery.jpg) no-repeat center center fixed; background-size: cover;}
+.topbar{position:sticky; top:0; z-index:50; display:flex; gap:12px; align-items:center; padding:12px 16px; background:#111; border-bottom:1px solid rgba(255,255,255,.12)}
+.topbar .back{color:#fff; text-decoration:none; font-weight:600}
+.topbar h1{margin:0 auto 0 8px; font-size:20px}
+.wrapper{max-width:1100px; margin:22px auto; padding:0 16px}
+.hours-card{background:#151515; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; margin-bottom:14px}
+.menu-group{background:#151515; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; margin-bottom:14px}
+.menu-group h2{margin:0 0 10px 0}
+.menu-group ul{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+.menu-group li{display:grid; grid-template-columns: 1fr 1.4fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08)}
+.menu-group li span{font-weight:600}
+.menu-group li em{opacity:.9; font-style:normal}
+.menu-group li strong{font-weight:800}
+.supps{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.foot{opacity:.85; padding:18px 0; text-align:center}
+/* === Alignement prix à droite (Messery) === */
+.menu-group li{
+  display:flex;              /* remplace la grille */
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* Nom du plat */
+.menu-group li span{ 
+  font-weight:600;
+}
+
+/* Description (si présente) – reste à gauche, n'affecte pas le prix */
+.menu-group li em{
+  font-style:normal;
+  opacity:.85;
+  margin-left:8px;
+}
+
+/* Prix toujours à droite */
+.menu-group li strong{
+  margin-left:auto;          /* pousse à droite */
+  white-space:nowrap;        /* évite le retour à la ligne */
+  text-align:right;
+  min-width:5ch;             /* colonne prix stable */
+}
+
+/* Optionnel: si certains intitulés sont longs sur mobile */
+@media (max-width: 560px){
+  .menu-group li{ flex-wrap:wrap; }
+  .menu-group li strong{ order:3; } /* garde le prix à droite sur la 1ère ligne */
+}

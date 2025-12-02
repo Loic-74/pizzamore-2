@@ -1,0 +1,60 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background: url(img/fond-messery.jpg) no-repeat center center fixed; background-size: cover;}
+.topbar{position:sticky; top:0; z-index:50; display:flex; gap:12px; align-items:center; padding:12px 16px; background:#111; border-bottom:1px solid rgba(255,255,255,.12)}
+.topbar .back{color:#fff; text-decoration:none; font-weight:600}
+.topbar h1{margin:0 auto 0 8px; font-size:20px}
+.wrapper{max-width:1100px; margin:22px auto; padding:0 16px}
+.menu-group{background:#151515; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; margin-bottom:14px}
+.menu-group h2{margin:0 0 10px 0}
+.menu-group ul{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+.menu-group li{display:grid; grid-template-columns: 1fr 1.4fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08)}
+.menu-group li span{font-weight:600}
+.menu-group li em{opacity:.9; font-style:normal}
+.menu-group li strong{font-weight:800}
+
+/* Tables vins */
+.wines{width:100%; border-collapse:collapse; margin:8px 0 14px 0; font-size:15px}
+.wines th, .wines td{border:1px solid rgba(255,255,255,.12); padding:10px; text-align:left}
+.wines th{background:#1a1a1a}
+.icon-glass, .icon-bottle{display:inline-block; width:1em; height:1em; vertical-align:-0.15em; background-size:contain; background-repeat:no-repeat; margin-right:4px}
+.icon-glass{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M7 2h10v2a5 5 0 0 1-4 4.9V19h3v2H8v-2h3V8.9A5 5 0 0 1 7 4V2z'/></svg>")}
+.icon-bottle{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M10 2h4v3l1 2v13a3 3 0 0 1-3 3h-0a3 3 0 0 1-3-3V7l1-2V2z'/></svg>")}
+
+.foot{opacity:.85; padding:18px 0; text-align:center}
+
+/* Nom du plat */
+.menu-group li span{ 
+  font-weight:600;
+}
+
+/* === Alignement boissons avec litrages et prix === */
+.menu-group li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-group li strong {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px; /* espace entre litrage et prix (~2-3cm) */
+  min-width: 120px; /* colonne stable pour les prix */
+  text-align: right;
+  white-space: nowrap;
+}
+
+.menu-group li strong em {
+  font-style: normal;
+  opacity: .85;
+  font-size: 0.9em;
+  min-width: 50px;   /* colonne stable pour les litrages */
+  text-align: right;
+}
+/* Optionnel: si certains intitulés sont longs sur mobile */
+@media (max-width: 560px){
+  .menu-group li{ flex-wrap:wrap; }
+  .menu-group li strong{ order:3; } /* garde le prix à droite sur la 1ère ligne */
+}

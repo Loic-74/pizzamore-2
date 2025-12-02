@@ -1,0 +1,29 @@
+/* --- Reset de base --- */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff;overflow:hidden;background:#111}
+
+/* --- Background slideshow --- */
+.bg{position:fixed; inset:0}
+.bg::before,.bg::after,.bg .img3{content:""; position:absolute; inset:0; background-position:center; background-size:cover; background-repeat:no-repeat; filter:brightness(.6)}
+.bg::before{background-image:url(img/pizza.jpg); animation:fade 18s infinite}
+.bg::after{background-image:url(img/rizotto.jpg); animation:fade 18s infinite 6s}
+.bg .img3{background-image:url(img/tiramisu.jpg); animation:fade 18s infinite 12s}
+@keyframes fade{0%{opacity:1}27%{opacity:1}33%{opacity:0}94%{opacity:0}100%{opacity:1}}
+.overlay{position:fixed; inset:0; background:linear-gradient( to bottom right, rgba(0,0,0,.45), rgba(0,0,0,.55) )}
+
+/* --- Contenu --- */
+.container{position:relative; z-index:10; display:grid; place-items:center; min-height:100dvh; padding:24px}
+.card{max-width:980px; width:100%; backdrop-filter: blur(6px); background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); border-radius:28px; box-shadow:0 10px 30px rgba(0,0,0,.35); padding:clamp(18px,4vw,40px)}
+
+h1{font-size:clamp(28px,5vw,56px); line-height:1.1; margin:0 0 12px; font-weight:800}
+.lead{font-size:clamp(16px,2.6vw,22px); margin:0 0 22px; color:#f3f3f3}
+
+.choices{display:flex; gap:18px; flex-wrap:wrap}
+.choice{position:relative; flex:1 1 260px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:#fff; border-radius:22px; padding:22px 24px; overflow:hidden; border:1px solid rgba(255,255,255,.18); background: radial-gradient(1200px 200px at 0% 0%, rgba(255,255,255,.08), rgba(255,255,255,.02)); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+.choice:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.32); box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.choice .label{font-size:clamp(18px,2.8vw,26px); font-weight:700}
+.choice .pin{position:absolute; top:12px; right:14px; font-size:13px; background:#e63946; color:#fff; padding:6px 10px; border-radius:999px; font-weight:600}
+
+.foot{margin-top:22px; display:flex; align-items:center; gap:12px; opacity:.9; font-size:14px; flex-wrap:wrap}
+.dot{width:6px; height:6px; border-radius:50%; background:#e63946}
